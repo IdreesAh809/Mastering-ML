@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Salary Prediction</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h2>Welcome to Salary Prediction</h2>
+        <form action="/predict" method="post">
+            <label>Experience:</label>
+            <input type="number" name="experience" step="any" required><br>
+
+            <label>Test Score:</label>
+            <input type="number" name="test_score" step="any" required><br>
+
+            <label>Interview Score:</label>
+            <input type="number" name="interview_score" step="any" required><br>
+
+            <input type="submit" value="Predict">
+        </form>
+
+        {% if prediction %}
+        <div class="prediction-box">
+            <h3>Predicted Salary:</h3>
+            <p>${{ prediction }}</p>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
